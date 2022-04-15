@@ -7,7 +7,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-public class MyServer {
+public class MyPhase1Server {
     public static void main(String[] args) {
         Socket serverSocket;
         ServerSocket listener;
@@ -20,9 +20,8 @@ public class MyServer {
             listener = new ServerSocket(9091);
             System.out.println("Connected to Client!\tReady to chat...");
             serverSocket = listener.accept();
-            System.out.println("server socket accept getLocalAddress: " + serverSocket.getLocalAddress().getHostAddress());
-            System.out.println("server socket accept getPort: " + serverSocket.getPort());
-            System.out.println("server socket accept getInetAddress: " + serverSocket.getInetAddress().getHostAddress());
+            System.out.println("server socket accept getLocalAddress: "
+                    + serverSocket.getLocalAddress().getHostAddress());
 
             // initialize input & output and exchage data
             inputStream = new BufferedReader(new InputStreamReader(serverSocket.getInputStream()));
