@@ -11,22 +11,23 @@ public class StringNormallize {
     }
 
     public String normalize() {
-        String normalizedString = "";
 
+        // remove spaces character at most left and the end of string
+        // and take all characters to lowercase
         normalString = normalString.trim().toLowerCase();
-//        regex trimmer = new Regex()
-        String[] nomalizingString = normalString.split(" ");
-        StringBuffer normalStringBuffer = new StringBuffer();
-        for (String str : nomalizingString) {
-            if (!str.equals("")) {
-                normalizedString += str;
-                normalizedString += " ";
-            }
-        }
-        firstLetter = normalizedString.substring(0, 1).toUpperCase();
-        remLetters = normalizedString.substring(1);
+
+        // replace all consecutive spaces-string by a space
+        // "\\s+" is a special string, which present successive space-string
+        normalString = normalString.replaceAll("\\s+"," ");
+
+        // get substring which consist of the first letter of origin string, and capitalize it.
+        firstLetter = normalString.substring(0, 1).toUpperCase();
+
+        // get to rest of origin string from position 1.
+        remLetters = normalString.substring(1);
+
+        // add two substrings to an unique string
         firstLetter = firstLetter.concat(remLetters);
-//        System.out.println("normalized string: " + firstLetter);
         return firstLetter;
     }
 
