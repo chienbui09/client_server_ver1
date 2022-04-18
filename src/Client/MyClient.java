@@ -22,6 +22,7 @@ public class MyClient {
             sendThread.start();
             recvThread.start();
 
+
         } catch (IOException e) {
             System.err.println("can't connect to server. access denied!");
             e.printStackTrace();
